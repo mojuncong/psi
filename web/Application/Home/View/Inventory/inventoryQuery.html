@@ -1,0 +1,18 @@
+<layout name="layout" />
+
+<script src="{$uri}Public/Scripts/PSI/Inventory/InvQueryMainForm.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script>
+    Ext.onReady(function(){
+        var app = Ext.create("PSI.App", {
+            userName: "{$loginUserName}",
+            productionName: "{$productionName}"
+        });
+
+        app.add(Ext.create("PSI.Inventory.InvQueryMainForm"));
+        app.setAppHeader({
+            title: "{$title}",
+            iconCls: "PSI-fid2003"
+            });
+    });
+</script>

@@ -1,0 +1,28 @@
+<layout name="layout" />
+
+<script src="{$uri}Public/Scripts/PSI/Warehouse/MainForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/Warehouse/EditForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/Warehouse/EditDataOrgForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/User/SelectUserDataOrg.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script>
+    Ext.onReady(function(){
+        var app = Ext.create("PSI.App", {
+            userName: "{$loginUserName}",
+            productionName: "{$productionName}"
+        });
+
+        
+        app.add(Ext.create("PSI.Warehouse.MainForm", {
+        	pAdd: "{$pAdd}",
+        	pEdit: "{$pEdit}",
+        	pDelete: "{$pDelete}",
+        	pEditDataOrg: "{$pEditDataOrg}"
+        }));
+
+        app.setAppHeader({
+            title: "{$title}",
+            iconCls: "PSI-fid1003"
+            });
+    });
+</script>

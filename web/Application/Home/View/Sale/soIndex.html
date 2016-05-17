@@ -1,0 +1,41 @@
+<layout name="layout" />
+
+<script src="{$uri}Public/Scripts/PSI/Warehouse/WarehouseField.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script src="{$uri}Public/Scripts/PSI/User/UserField.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/User/OrgWithDataOrgField.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/Goods/GoodsWithSalePriceField.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script src="{$uri}Public/Scripts/PSI/Customer/CustomerField.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script src="{$uri}Public/Scripts/PSI/SaleOrder/SOMainForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/SaleOrder/SOEditForm.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script src="{$uri}Public/Scripts/PSI/Sale/WSEditForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/Sale/WSExportForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/Sale/WSImportForm.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script src="{$uri}Public/Scripts/PSI/Customer/CustomerEditForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/UX/CellEditing.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script>
+    Ext.onReady(function(){
+        var app = Ext.create("PSI.App", {
+            userName: "{$loginUserName}",
+            productionName: "{$productionName}"
+        });
+
+        var permission = {
+        		confirm: "{$pConfirm}",
+        		genWSBill: "{$pGenWSBill}"
+        };
+
+        app.add(Ext.create("PSI.SaleOrder.SOMainForm", {
+        	permission: permission
+        }));
+        app.setAppHeader({
+            title: "{$title}",
+            iconCls: "PSI-fid2028"
+            });
+    });
+</script>

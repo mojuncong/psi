@@ -1,0 +1,25 @@
+<layout name="layout" />
+
+<script src="{$uri}Public/Scripts/PSI/InvCheck/InvCheckMainForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/InvCheck/ICEditForm.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script src="{$uri}Public/Scripts/PSI/Warehouse/WarehouseField.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/User/UserField.js?dt={$dtFlag}" type="text/javascript"></script>
+<script src="{$uri}Public/Scripts/PSI/Goods/GoodsField.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script src="{$uri}Public/Scripts/PSI/UX/CellEditing.js?dt={$dtFlag}" type="text/javascript"></script>
+
+<script>
+    Ext.onReady(function(){
+        var app = Ext.create("PSI.App", {
+            userName: "{$loginUserName}",
+            productionName: "{$productionName}"
+        });
+
+        app.add(Ext.create("PSI.InvCheck.InvCheckMainForm"));
+        app.setAppHeader({
+            title: "{$title}",
+            iconCls: "PSI-fid2010"
+            });
+    });
+</script>

@@ -1,0 +1,22 @@
+<layout name="layout" />
+
+<script src="{$uri}Public/Scripts/PSI/Home/MainForm.js?dt={$dtFlag}" type="text/javascript"></script>
+<script>
+    Ext.onReady(function(){
+        var app = Ext.create("PSI.App", {
+            userName: "{$loginUserName}",
+            productionName: "{$productionName}"
+        });
+
+        app.add(Ext.create("PSI.Home.MainForm", {
+        	pSale: "{$pSale}",
+        	pInventory: "{$pInventory}",
+        	pPurchase: "{$pPurchase}",
+        	pMoney: "{$pMoney}"
+        }));
+        app.setAppHeader({
+            title: "{$title}",
+            iconCls: "PSI-fid-9997"
+            });
+    });
+</script>
