@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" href="{$uri}Public/mui/css/mui.min.css">
+    <link rel="stylesheet" href="{$uri}Public/mui/css/style.css">
+	<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			.mui-input-group {
+				margin-top: 10px;
+			}
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			.mui-input-group label {
+				width: 22%;
+			}
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+			}
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			.mui-content-padded {
+				margin-top: 40px;
+			}
+			.mui-btn {
+				padding: 10px;
+			}
+			.link-area {
+				display: block;
+				margin-top: 25px;
+				text-align: center;
+			}
+			.spliter {
+				color: #bbb;
+				padding: 0px 8px;
+			}
+		</style>
+<title>商品详细信息</title>
+</head>
+<body>
+	<div class="mui-content">
+			
+			<div class="mui-table-padded" id="tb">
+				<ul class="mui-table-view" id="goodsinfo"> 
+	
+				</ul>
+			</div>
+			<div class="mui-content-padded">
+				<div><button id='back' class="mui-btn mui-btn-block mui-btn-royal">返回</button> </div>
+			</div>
+	
+</div>
+<script src="{$uri}Public/mui/js/mui.min.js"></script>
+<script src="{$uri}Public/mui/js/jquery-2.1.4.min.js"></script>
+<script src="{$uri}Public/mui/js/goodsquery.js"></script>
+<script src="{$uri}Public/mui/js/app.js"></script>
+
+<script>
+	var uri="{$uri}";
+	window.onload=function(){
+		var gcode=getUrlParam('gcode');
+		displayinfo(gcode);
+	}
+	var settings=getSettings();
+	var session = getSession();
+	var state = getState();
+	if(!session && !(settings.autoLogin && state.token))
+	   location.replace("{$uri}mobile/login/login");
+	var backButton=document.getElementById('back');
+	backButton.addEventListener('tap',function(event) {
+		location.replace("{$uri}mobile/GoodsQuery/goodspricelist");
+	   
+	});
+    
+</script>
+</body>
+</html>

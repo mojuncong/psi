@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-
-<html >
-
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-<title>商品价格查询</title>
+<title>商品例表</title>
 	<link rel="stylesheet" href="{$uri}Public/mui/css/mui.min.css">
     <link rel="stylesheet" href="{$uri}Public/mui/css/style.css">
 	<style>
@@ -33,6 +31,9 @@
 			.mui-content-padded {
 				margin-top: 40px;
 			}
+			.mui-table-padded {
+				margin-top: 10px;
+			}
 			.mui-btn {
 				padding: 10px;
 			}
@@ -47,13 +48,13 @@
 			}
 		</style>
 </head>
-<body >
-<div class="mui-content">
+<body>
+	<div class="mui-content">
 	
 			<form id='querryprice-form' class="mui-input-group">
 				<div class="mui-input-row">
 					<label>商品</label>
-					<input id='goods' type="text"  class="mui-input-clear mui-input" placeholder="请输入商品名称或拼音缩写">
+					<input id='goods' type="text"  class="mui-input-clear mui-input" >
 				</div>
 				<div class="mui-input-row">
 					<label>仓库</label>
@@ -62,14 +63,21 @@
 					</select>  
 				</div>
 			</form>
+			
+			<div class="mui-table-padded" id="tb"><table border="1" id="listtable" width="100%">
+				<tr>
+					<td>商品编码</td>
+					<td>商品名字</td>
+					<td>规格型号</td>
+				</tr>
+				</table>
+			</div>
 			<div class="mui-content-padded">
 				<div><button id='query' class="mui-btn mui-btn-block mui-btn-primary">查询</button></div>
-				<div><button id='cleard' class="mui-btn mui-btn-block mui-btn-danger">清空</button></div>
 				<div><button id='back' class="mui-btn mui-btn-block mui-btn-royal">返回</button> </div>
 			</div>
 	
 </div>
-	
 <script src="{$uri}Public/mui/js/mui.min.js"></script>
 <script src="{$uri}Public/mui/js/jquery-2.1.4.min.js"></script>
 <script src="{$uri}Public/mui/js/goodsquery.js"></script>
@@ -79,6 +87,7 @@
         	var wareHouseIdSelectd=document.getElementById('wareHouseIdSelect');
         	window.onload=function(){
         		selects(wareHouseIdSelect);
+        		goodslist();
         	}
         	var settings=getSettings();
             var session = getSession();
@@ -87,13 +96,10 @@
                location.replace("{$uri}mobile/login/login");
             var backButton=document.getElementById('back');
             var queryButton=document.getElementById('query');
-            var clearButton=document.getElementById('cleard');
             backButton.addEventListener('tap',function(event) {
-            	location.replace("{$uri}mobile/index/index");
-               
-            });
-            clearButton.addEventListener('tap',function(event) {
-            	$("#goods").val("");
+            	location.replace("{$uri}mobile/GoodsQuery/querygoodsprice");
+            	sessionStorage.setItem('goodsname',"");
+        		sessionStorage.setItem('warehouse',"");
                
             });
             queryButton.addEventListener('tap',function(event) {
@@ -104,16 +110,6 @@
             });
         	
 </script>
-	
-	
-	
-	
-	
-		
-        
-	
-	
-	
 
 </body>
 </html>

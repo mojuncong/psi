@@ -18,4 +18,32 @@ use Mobile\Service\GoodsQueryService;
 			$selected= new GoodsQueryService();
 			$this->ajaxReturn($selected->warehouse());
 		} 
+		public function goodspricelist(){
+			$this->assign("uri", __ROOT__ . "/");
+			$this->display();
+		}
+		public function querylist(){
+			$this->assign("uri", __ROOT__ . "/");
+			if (IS_POST) {
+				$goodsname=I("post.goodsname");
+				$warehouse=I("post.warehouse");
+				$list= new GoodsQueryService();
+				$this->ajaxReturn($list->goodlist($goodsname, $warehouse));
+			}
+			
+		}
+		public function goodsinfo(){
+			$this->assign("uri", __ROOT__ . "/");
+			$this->display();
+		}
+		public function queryinfo(){
+			$this->assign("uri", __ROOT__ . "/");
+			if (IS_POST) {
+				$gcode=I("post.gcode");
+				$warehouse=I("post.warehouse");
+				$list= new GoodsQueryService();
+				$this->ajaxReturn($list->goodinfos($gcode,$warehouse));
+			}
+		}
 	}
+	
